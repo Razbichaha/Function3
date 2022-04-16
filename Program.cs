@@ -8,31 +8,28 @@ namespace Function3
         {
             int inputPlaer = 0;
 
-            OutputMenu(out inputPlaer);
             
-            Console.Write("Вы  ввели число - " + inputPlaer);
+            Console.Write("Вы  ввели число - " + GetNumber(inputPlaer));
             Console.ReadKey();
         }
 
-        static void OutputMenu(out int inputPlaer )
+        static int GetNumber(int inputPlaer )
         {
             inputPlaer = 0;
-            bool thisIsInputOfValue = true;
+            bool isNumber = true;
 
-            while (thisIsInputOfValue)
+            while (isNumber)
             {
                 Console.Write("Введите число ");
                 string stringTemp = Console.ReadLine();
 
                 if(int.TryParse(stringTemp, out inputPlaer))
                 {
-                    thisIsInputOfValue = false;
-                }else
-                {
-                    stringTemp = "";
+                    isNumber = false;
                 }
                 Console.Clear();
             }
+            return inputPlaer;
         }
     }
 }
